@@ -8,14 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root {
-            --caribbean-green: #00D1A9;
-            --dark-green: #007A6E;
-            --light-green: #E0F2F1;
+            --dark-green: #1a3a1a;
+            --medium-green: #2d5a2d;
+            --light-green: #4a7c4a;
+            --gold: #d4af37;
+            --cream: #f5f5dc;
             --dark-gray: #333333;
-            --cream: #F5F5DC;
-            --white: #FFFFFF;
+            --light-gray: #f8f8f8;
         }
         
         * {
@@ -28,7 +30,7 @@
             font-family: 'Open Sans', sans-serif;
             color: var(--dark-gray);
             line-height: 1.6;
-            background-color: var(--white);
+            background-color: var(--cream);
         }
         
         h1, h2, h3, h4 {
@@ -50,6 +52,7 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         .header-container {
@@ -63,7 +66,15 @@
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 900;
-            color: var(--caribbean-green);
+            color: var(--dark-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
         }
         
         nav ul {
@@ -80,10 +91,26 @@
             color: var(--dark-gray);
             font-weight: 600;
             transition: color 0.3s;
+            position: relative;
         }
         
         nav ul li a:hover {
-            color: var(--caribbean-green);
+            color: var(--light-green);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--light-green);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
         /* Hero Section */
@@ -108,26 +135,33 @@
             font-size: 60px;
             margin-bottom: 20px;
             color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
         
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background-color: var(--caribbean-green);
+            background-color: var(--light-green);
             color: white;
             text-decoration: none;
             border-radius: 4px;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: 2px solid var(--light-green);
         }
         
         .btn:hover {
-            background-color: var(--dark-green);
+            background-color: transparent;
+            color: white;
+            border-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         /* About Section */
@@ -141,6 +175,18 @@
             margin-bottom: 60px;
             font-size: 36px;
             color: var(--dark-green);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .about-content {
@@ -163,23 +209,33 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover {
+            transform: scale(1.02);
         }
         
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
         }
         
         /* Menu Section */
         .menu {
             padding: 100px 0;
-            background-color: var(--light-green);
+            background-color: var(--light-gray);
         }
         
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -189,31 +245,44 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .menu-item:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .menu-item img {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.5s ease;
         }
         
         .menu-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
         .menu-item-content {
             padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .menu-item-content h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+        
+        .menu-item-content p {
+            color: #666;
+            margin-bottom: 15px;
+            flex: 1;
         }
         
         .menu-btn-container {
@@ -238,17 +307,39 @@
             overflow: hidden;
             border-radius: 8px;
             position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.5s ease;
         }
         
         .gallery-item:hover img {
             transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
         }
         
         /* Testimonials Section */
@@ -276,16 +367,43 @@
         
         .testimonial.active {
             display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .testimonial-text {
             font-size: 20px;
             font-style: italic;
             margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 40px;
+            color: var(--gold);
+            opacity: 0.5;
+            position: absolute;
+        }
+        
+        .testimonial-text::before {
+            top: -20px;
+            left: -30px;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -30px;
         }
         
         .testimonial-author {
             font-weight: 600;
+            color: var(--gold);
         }
         
         .testimonial-nav {
@@ -301,25 +419,36 @@
             border-radius: 50%;
             margin: 0 5px;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-dot:hover {
+            background-color: rgba(255,255,255,0.8);
         }
         
         .testimonial-dot.active {
             background-color: white;
+            transform: scale(1.2);
         }
         
         /* Reservation Section */
         .reservation {
             padding: 100px 0;
-            background-color: white;
+            background-color: var(--light-gray);
         }
         
         .reservation-form {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--light-green);
+            background-color: white;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .reservation-form:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
         .form-row {
@@ -340,6 +469,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--dark-green);
         }
         
         .form-group input, 
@@ -350,6 +480,15 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-family: 'Open Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--light-green);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 124, 74, 0.2);
         }
         
         .form-group textarea {
@@ -360,7 +499,7 @@
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background-color: var(--light-green);
+            background-color: white;
         }
         
         .contact-container {
@@ -386,18 +525,29 @@
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-detail:hover {
+            transform: translateX(5px);
         }
         
         .contact-detail i {
             width: 40px;
             height: 40px;
-            background-color: var(--caribbean-green);
+            background-color: var(--dark-green);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-detail:hover i {
+            background-color: var(--light-green);
+            transform: rotate(10deg);
         }
         
         .opening-hours h4 {
@@ -430,6 +580,12 @@
             height: 400px;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-map:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
         .contact-map iframe {
@@ -440,7 +596,7 @@
         
         /* Footer */
         footer {
-            background-color: var(--dark-gray);
+            background-color: var(--dark-green);
             color: white;
             padding: 60px 0 20px;
         }
@@ -458,7 +614,19 @@
         .footer-col h4 {
             font-size: 20px;
             margin-bottom: 20px;
-            color: var(--caribbean-green);
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
         }
         
         .footer-col ul {
@@ -472,11 +640,12 @@
         .footer-col ul li a {
             color: #ccc;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
         
         .footer-col ul li a:hover {
             color: white;
+            padding-left: 5px;
         }
         
         .social-links {
@@ -493,11 +662,13 @@
             align-items: center;
             justify-content: center;
             color: white;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
         }
         
         .social-links a:hover {
-            background-color: var(--caribbean-green);
+            background-color: var(--gold);
+            color: var(--dark-green);
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -518,6 +689,18 @@
             cursor: pointer;
         }
         
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .about-content, 
@@ -529,6 +712,10 @@
             .contact-info,
             .contact-map {
                 width: 100%;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
         
@@ -595,7 +782,10 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">The Food Land</div>
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/40" alt="The Food Land Logo">
+                The Food Land
+            </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -603,7 +793,7 @@
                 <ul id="mainMenu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#menu">Menu</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#reservation">Reservations</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -614,7 +804,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-content">
+        <div class="container hero-content animate-on-scroll">
             <h1>Experience Authentic Indian Cuisine</h1>
             <p>A celebration of India's diverse culinary heritage in our beautiful garden setting</p>
             <a href="#reservation" class="btn">Book a Table</a>
@@ -624,15 +814,15 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">Our Story</h2>
+            <h2 class="section-title animate-on-scroll">Our Story</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text animate-on-scroll">
                     <h3>The Food Land Family Garden Restaurant</h3>
                     <p>Welcome to The Food Land Family Garden Restaurant, a beloved culinary destination in Nagpur, serving authentic Indian cuisine with a modern twist. Our restaurant is a celebration of India's diverse culinary heritage, where each dish tells a story of regional flavors and time-honored recipes.</p>
                     <p>We take pride in sourcing only the finest ingredients from local farmers and trusted suppliers who share our commitment to quality and sustainability. Our chefs combine traditional techniques with contemporary presentations to create unforgettable dining experiences.</p>
                     <p>Our beautifully designed garden setting provides the perfect ambiance for family gatherings, romantic dinners, and special celebrations, making every visit a memorable occasion.</p>
                 </div>
-                <div class="about-image">
+                <div class="about-image animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant Interior">
                 </div>
             </div>
@@ -642,10 +832,10 @@
     <!-- Menu Section -->
     <section class="menu" id="menu">
         <div class="container">
-            <h2 class="section-title">Our Menu</h2>
+            <h2 class="section-title animate-on-scroll">Our Menu</h2>
             <div class="menu-grid">
                 <!-- Appetizers -->
-                <div class="menu-item">
+                <div class="menu-item animate-on-scroll">
                     <img src="https://i.pinimg.com/736x/77/1e/b4/771eb4b06b966c164be868685bfd5c85.jpg" alt="Paneer Tikka" loading="lazy">
                     <div class="menu-item-content">
                         <h3>Paneer Tikka</h3>
@@ -654,7 +844,7 @@
                 </div>
 
                 <!-- Main Courses -->
-                <div class="menu-item">
+                <div class="menu-item animate-on-scroll">
                     <img src="https://i.pinimg.com/736x/a8/9a/9f/a89a9f222ff5f325895f8053e8bbc5b0.jpg" alt="Butter Chicken" loading="lazy">
                     <div class="menu-item-content">
                         <h3>Butter Chicken</h3>
@@ -663,7 +853,7 @@
                 </div>
 
                 <!-- Desserts -->
-                <div class="menu-item">
+                <div class="menu-item animate-on-scroll">
                     <img src="https://i.pinimg.com/736x/9c/64/1f/9c641f34a51c3d39c254f34acfb25011.jpg" alt="Gulab Jamun" loading="lazy">
                     <div class="menu-item-content">
                         <h3>Gulab Jamun</h3>
@@ -671,7 +861,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu-btn-container">
+            <div class="menu-btn-container animate-on-scroll">
                 <a href="menu.html" class="btn">View Full Menu</a>
             </div>
         </div>
@@ -680,24 +870,24 @@
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <h2 class="section-title">Gallery</h2>
+            <h2 class="section-title animate-on-scroll">Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restaurant Interior">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Food Dish">
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Restaurant Interior">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Food Dish">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Food Dish">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Food Dish">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1488&q=80" alt="Food Dish">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Food Dish">
                 </div>
             </div>
@@ -707,7 +897,7 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Guests Say</h2>
+            <h2 class="section-title animate-on-scroll">What Our Guests Say</h2>
             <div class="testimonial-slider">
                 <div class="testimonial active">
                     <p class="testimonial-text">"The Food Land offers the most authentic Indian flavors in Nagpur. The garden setting is absolutely beautiful, and the service is impeccable. A must-visit for anyone who loves Indian cuisine!"</p>
@@ -722,7 +912,7 @@
                     <p class="testimonial-author">- Amit and Neha Desai</p>
                 </div>
             </div>
-            <div class="testimonial-nav">
+            <div class="testimonial-nav animate-on-scroll">
                 <div class="testimonial-dot active" data-index="0"></div>
                 <div class="testimonial-dot" data-index="1"></div>
                 <div class="testimonial-dot" data-index="2"></div>
@@ -733,9 +923,11 @@
     <!-- Reservation Section -->
     <section class="reservation" id="reservation">
         <div class="container">
-            <h2 class="section-title">Book a Table</h2>
-            <div class="reservation-form">
-                <form id="reservationForm">
+            <h2 class="section-title animate-on-scroll">Book a Table</h2>
+            <div class="reservation-form animate-on-scroll">
+                <form id="reservationForm" action="https://formsubmit.co/riteshrathod016@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Reservation">
+                    <input type="hidden" name="_template" value="table">
                     <div class="form-row">
                         <div class="form-col">
                             <div class="form-group">
@@ -794,6 +986,8 @@
                         <textarea id="reservationNotes" name="notes" placeholder="Any special requirements?"></textarea>
                     </div>
                     <button type="submit" class="btn">Reserve Table</button>
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                    <input type="hidden" name="_autoresponse" value="Your reservation at The Food Land has been confirmed!">
                 </form>
             </div>
         </div>
@@ -802,9 +996,9 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title animate-on-scroll">Contact Us</h2>
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-info animate-on-scroll">
                     <h3>Get in Touch</h3>
                     <div class="contact-details">
                         <div class="contact-detail">
@@ -847,7 +1041,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-map">
+                <div class="contact-map animate-on-scroll">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8212.461846406895!2d79.05392586942502!3d21.06566152213452!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf8e927c6c11%3A0xbc765687f9fb4ab3!2sThe%20Food%20Land%20Family%20Garden%20Restaurant!5e1!3m2!1sen!2sin!4v1748160199670!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
@@ -858,22 +1052,23 @@
     <footer>
         <div class="container">
             <div class="footer-container">
-                <div class="footer-col">
+                <div class="footer-col animate-on-scroll">
                     <h4>The Food Land</h4>
                     <p>Experience authentic Indian cuisine in our beautiful garden setting. We offer an unforgettable culinary journey through India's diverse regional flavors, perfect for family gatherings and special occasions.</p>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col animate-on-scroll">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#menu">Menu</a></li>
                         <li><a href="#reservation">Reservations</a></li>
+                        <li><a href="menu.html">Full Menu</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col animate-on-scroll">
                     <h4>Contact Info</h4>
                     <ul>
                         <li>Wardha Rd, near Delhi Darbar, Chinch Bhawan, Nagpur, Maharashtra 440015</li>
@@ -882,7 +1077,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright animate-on-scroll">
                 <p>&copy; 2023 The Food Land Family Garden Restaurant. All Rights Reserved.</p>
             </div>
         </div>
@@ -895,6 +1090,8 @@
         
         mobileMenuBtn.addEventListener('click', () => {
             mainMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = mainMenu.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
         // Smooth scrolling for anchor links
@@ -914,6 +1111,7 @@
                     // Close mobile menu if open
                     if (mainMenu.classList.contains('show')) {
                         mainMenu.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                     }
                 }
             });
@@ -946,63 +1144,43 @@
             showTestimonial(nextIndex);
         }, 5000);
         
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        
+        // Initialize animations on load
+        window.addEventListener('load', animateOnScroll);
+        
+        // Animate elements on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(255,255,255,0.95)';
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.padding = '20px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+        
         // Set minimum date for reservation to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('reservationDate').min = today;
-
-        // Reservation Form Submission
-        const reservationForm = document.getElementById('reservationForm');
-        
-        reservationForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(reservationForm);
-            const reservationData = {
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                date: formData.get('date'),
-                time: formData.get('time'),
-                guests: formData.get('guests'),
-                occasion: formData.get('occasion'),
-                notes: formData.get('notes')
-            };
-            
-            // Create message for SMS
-            const message = `New Reservation at The Food Land:
-Name: ${reservationData.name}
-Phone: ${reservationData.phone}
-Date: ${reservationData.date}
-Time: ${reservationData.time}
-Guests: ${reservationData.guests}
-Occasion: ${reservationData.occasion || 'Not specified'}
-Notes: ${reservationData.notes || 'None'}`;
-
-            try {
-                // Send SMS notification
-                const response = await fetch('https://textbelt.com/text', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        phone: '7721874530',
-                        message: message,
-                        key: '3ad2ac7d-5205-4c7f-b856-de35b9a592f3'
-                    })
-                });
-
-                const result = await response.json();
-                
-                if (result.success) {
-                    alert('Your reservation has been confirmed! We look forward to serving you.');
-                    reservationForm.reset();
-                } else {
-                    alert('There was an error processing your reservation. Please call us directly to book.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('There was an error processing your reservation. Please call us directly to book.');
-            }
-        });
     </script>
 </body>
 </html>
