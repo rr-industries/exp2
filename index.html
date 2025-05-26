@@ -757,7 +757,97 @@
         </div>
     </section>
     
-    <!-- Testimonials Section -->
+    <!-- Reservation Section -->
+    <section class="section reservation" id="reservation">
+        <div class="container">
+            <h2 class="section-title">Book a Table</h2>
+            <div class="reservation-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" name="guests" required>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 People</option>
+                            <option value="6">6 People</option>
+                            <option value="7">7 People</option>
+                            <option value="8">8+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests</label>
+                        <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Events Section -->
+    <section class="section" id="events">
+        <div class="container">
+            <h2 class="section-title">Events & Private Dining</h2>
+            <div class="events-grid">
+                <div class="event-item">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Birthday Party">
+                    <div class="event-content">
+                        <h3>Birthday Parties</h3>
+                        <p>Celebrate your special day with us in a private dining area</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Anniversary">
+                    <div class="event-content">
+                        <h3>Anniversaries</h3>
+                        <p>Romantic settings for your anniversary celebrations</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Corporate Event">
+                    <div class="event-content">
+                        <h3>Corporate Events</h3>
+                        <p>Host your business meetings and corporate gatherings</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Catering Services">
+                    <div class="event-content">
+                        <h3>Catering Services</h3>
+                        <p>Let us bring our authentic flavors to your location</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-full-menu" style="margin-top: 50px;">
+                <a href="#contact" class="btn">Contact Us for Events</a>
+            </div>
+        </div>
+    </section>
+
+<!-- Testimonials Section -->
     <section class="section testimonials">
         <div class="container">
             <h2 class="section-title">What Our Customers Say</h2>
@@ -898,96 +988,18 @@
         </div>
     </section>
     
-    <!-- Reservation Section -->
-    <section class="section reservation" id="reservation">
+  
+    
+    <!-- Map Section -->
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">Book a Table</h2>
-            <div class="reservation-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Time</label>
-                        <input type="time" id="time" name="time" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">Number of Guests</label>
-                        <select id="guests" name="guests" required>
-                            <option value="1">1 Person</option>
-                            <option value="2">2 People</option>
-                            <option value="3">3 People</option>
-                            <option value="4">4 People</option>
-                            <option value="5">5 People</option>
-                            <option value="6">6 People</option>
-                            <option value="7">7 People</option>
-                            <option value="8">8+ People</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="special-requests">Special Requests</label>
-                        <textarea id="special-requests" name="special-requests" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Book Now</button>
-                </form>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6544.584389931775!2d79.0554515!3d21.0670163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf8e927c6c11%3A0xbc765687f9fb4ab3!2sThe%20Food%20Land%20Family%20Garden%20Restaurant!5e1!3m2!1sen!2sin!4v1748252968411!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
     
-    <!-- Events Section -->
-    <section class="section" id="events">
-        <div class="container">
-            <h2 class="section-title">Events & Private Dining</h2>
-            <div class="events-grid">
-                <div class="event-item">
-                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Birthday Party">
-                    <div class="event-content">
-                        <h3>Birthday Parties</h3>
-                        <p>Celebrate your special day with us in a private dining area</p>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Anniversary">
-                    <div class="event-content">
-                        <h3>Anniversaries</h3>
-                        <p>Romantic settings for your anniversary celebrations</p>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Corporate Event">
-                    <div class="event-content">
-                        <h3>Corporate Events</h3>
-                        <p>Host your business meetings and corporate gatherings</p>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Catering Services">
-                    <div class="event-content">
-                        <h3>Catering Services</h3>
-                        <p>Let us bring our authentic flavors to your location</p>
-                    </div>
-                </div>
-            </div>
-            <div class="view-full-menu" style="margin-top: 50px;">
-                <a href="#contact" class="btn">Contact Us for Events</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Info Section -->
+  <!-- Contact Info Section -->
     <section class="section" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -995,6 +1007,14 @@
                 <div class="contact-card">
                     <h3>Contact Details</h3>
                     <div class="contact-details">
+                    <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-img">
+                        <img src="foodland_logo.jpg" alt="The Food Land Restaurant Logo">
+                    
+                    </div>
+                    <div class="footer-logo-text">The Food Land</div>
+                </div>
                         <p>
                             <i class="fas fa-map-marker-alt"></i>
                             <a href="https://maps.app.goo.gl/example" target="_blank" style="color: #fff; text-decoration: none;">
@@ -1009,6 +1029,8 @@
                             <i class="fas fa-envelope"></i>
                             <a href="mailto:info@foodlandrestaurant.com" style="color: #fff; text-decoration: none;">info@foodlandrestaurant.com</a>
                         </p>
+                        <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="contact-card">
@@ -1032,49 +1054,6 @@
             </div>
         </div>
     </section>
-    
-    <!-- Map Section -->
-    <section class="section">
-        <div class="container">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6544.584389931775!2d79.0554515!3d21.0670163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf8e927c6c11%3A0xbc765687f9fb4ab3!2sThe%20Food%20Land%20Family%20Garden%20Restaurant!5e1!3m2!1sen!2sin!4v1748252968411!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="footer-logo-img">
-                        <img src="foodland_logo.jpg" alt="The Food Land Restaurant Logo">
-                    </div>
-                    <div class="footer-logo-text">The Food Land</div>
-                </div>
-                <div class="footer-contact">
-                    <h3>Follow Us</h3>
-                    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px;">
-                        <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
-                        <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
-                        <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-tripadvisor"></i></a>
-                    </div>
-                </div>
-                <div class="footer-hours">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe for updates and special offers</p>
-                    <form style="margin-top: 10px;">
-                        <input type="email" placeholder="Your Email" style="padding: 8px; border-radius: 5px; border: none; width: 100%; max-width: 250px;">
-                        <button type="submit" class="btn" style="padding: 8px 15px; margin-top: 10px; font-size: 0.8rem;">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2023 The Food Land Restaurant. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
     
     <script>
         // Simple form submission handler
