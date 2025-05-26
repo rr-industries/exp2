@@ -315,22 +315,24 @@
         .testimonials {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 80px 0;
+            overflow: hidden;
         }
         
         .testimonials-container {
-            overflow: hidden;
+            width: 100%;
             position: relative;
         }
         
         .testimonials-slider {
             display: flex;
-            transition: transform 0.5s ease;
-            width: 100%;
+            animation: scroll 60s linear infinite;
+            width: calc(250px * 20);
         }
         
         .testimonial {
-            min-width: 100%;
-            padding: 0 20px;
+            width: 250px;
+            flex-shrink: 0;
+            padding: 0 15px;
             box-sizing: border-box;
         }
         
@@ -340,12 +342,20 @@
             border-radius: 10px;
             text-align: center;
             backdrop-filter: blur(5px);
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
             line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
         .testimonial-author {
@@ -357,6 +367,11 @@
             color: #d4af37;
             margin-top: 10px;
             font-size: 1.2rem;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 10)); }
         }
         
         /* Events Section */
@@ -516,15 +531,30 @@
         footer {
             background-color: #000;
             padding: 50px 0 20px;
-            text-align: center;
         }
         
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
             margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            padding: 0 15px;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column p {
+            color: #ccc;
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
         
         .footer-logo {
@@ -534,10 +564,10 @@
         }
         
         .footer-logo-img {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            border: 3px solid #d4af37;
+            border: 2px solid #d4af37;
             margin-right: 15px;
             overflow: hidden;
         }
@@ -553,23 +583,59 @@
             color: #d4af37;
         }
         
-        .footer-contact h3,
-        .footer-hours h3 {
-            font-family: 'Playfair Display', serif;
-            color: #d4af37;
+        .contact-info-footer {
             margin-bottom: 15px;
-            font-size: 1.3rem;
         }
         
-        .footer-contact p,
-        .footer-hours p {
-            margin-bottom: 8px;
-            color: #ccc;
+        .contact-info-footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
         }
         
-        .copyright {
+        .contact-info-footer a:hover {
+            color: #d4af37;
+        }
+        
+        .contact-info-footer i {
+            margin-right: 10px;
+            color: #d4af37;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .phone-numbers {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .phone-number {
+            margin-bottom: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #d4af37;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
             border-top: 1px solid #444;
             padding-top: 20px;
+            text-align: center;
             color: #777;
             font-size: 0.9rem;
         }
@@ -590,6 +656,13 @@
             
             .btn {
                 padding: 10px 20px;
+                display: block;
+                width: fit-content;
+                margin-bottom: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
             }
             
             .section-title {
@@ -597,23 +670,25 @@
             }
             
             .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-logo {
-                justify-content: center;
-                margin-bottom: 30px;
-            }
-            
-            .footer-contact,
-            .footer-hours {
-                margin-bottom: 30px;
-                width: 100%;
-            }
-            
-            .contact-info {
                 grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                margin-bottom: 30px;
+            }
+            
+            .testimonial {
+                width: 220px;
+            }
+            
+            .testimonials-slider {
+                animation: scroll 40s linear infinite;
+                width: calc(220px * 20);
+            }
+            
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-220px * 10)); }
             }
         }
     </style>
@@ -806,7 +881,6 @@
         </div>
     </section>
     
-
     <!-- Events Section -->
     <section class="section" id="events">
         <div class="container">
@@ -847,12 +921,12 @@
         </div>
     </section>
 
-<!-- Testimonials Section -->
+    <!-- Testimonials Section -->
     <section class="section testimonials">
         <div class="container">
             <h2 class="section-title">What Our Customers Say</h2>
             <div class="testimonials-container">
-                <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonials-slider">
                     <div class="testimonial">
                         <div class="testimonial-content">
                             <p class="testimonial-text">"The Food Land exceeded all my expectations! The Signature Platter was absolutely divine, and the service was impeccable. Will definitely be coming back!"</p>
@@ -983,86 +1057,115 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Duplicate testimonials for continuous scrolling -->
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"The Food Land exceeded all my expectations! The Signature Platter was absolutely divine, and the service was impeccable. Will definitely be coming back!"</p>
+                            <p class="testimonial-author">- Rahul Sharma</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"We celebrated our anniversary here and it was magical. The ambiance, food, and attention to detail made our special day even more memorable."</p>
+                            <p class="testimonial-author">- Priya Patel</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-  
-    
     <!-- Map Section -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Location</h2>
-
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6544.584389931775!2d79.0554515!3d21.0670163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf8e927c6c11%3A0xbc765687f9fb4ab3!2sThe%20Food%20Land%20Family%20Garden%20Restaurant!5e1!3m2!1sen!2sin!4v1748252968411!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
     
-<!-- Footer -->
-<footer id="contact">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <div class="footer-logo">
-                    <div class="footer-logo-img">
-                        <img src="foodland_logo.jpg" alt="The Food Land Restaurant Logo">
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-img">
+                            <img src="foodland_logo.jpg" alt="The Food Land Logo">
+                        </div>
+                        <div class="footer-logo-text">The Food Land</div>
                     </div>
-                    <div class="footer-logo-text">THE FOOD LAND RESTAURANT</div>
-                </div>
-                <p>Experience authentic Indian cuisine at our restaurant located conveniently in Nagpur. We offer an unforgettable culinary journey through India's diverse regional flavors.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/p/The-Food-Land-61553023532528/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/the_food_land_/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>CONTACT US</h3>
-                <div class="contact-info">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps/place/The+Food+Land+Family+Garden+Restaurant/@21.0670266,79.0554978,751m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bd4bf8e927c6c11:0xbc765687f9fb4ab3!8m2!3d21.0670216!4d79.0580727!16s%2Fg%2F11vhqj888k?entry=ttu" target="_blank">
-                        The Food Land Restaurant, Chichbhawan, Nagpur, Maharashtra 440005
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <i class="fas fa-phone"></i>
-                    <div class="phone-numbers">
-                        <a href="tel:8788798101">8788798101</a><br>
-                        <a href="tel:8788798101">8788798101</a>
+                    <p>Experience forest like meal at our restaurant located conveniently on the highway. We offer an unforgettable culinary journey through India's diverse regional flavors.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="contact-info">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:info@thefoodlandrestaurant.com">info@thefoodlandrestaurant.com</a>
+                
+                <div class="footer-column">
+                    <h3>CONTACT US</h3>
+                    <div class="contact-info-footer">
+                        <a href="https://www.google.com/maps/place/The+Food+Land+Family+Garden+Restaurant/@21.0670266,79.0554978,751m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bd4bf8e927c6c11:0xbc765687f9fb4ab3!8m2!3d21.0670216!4d79.0580727!16s%2Fg%2F11vhqj888k?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i>
+                            The Food Land Restaurant, Chichbhawan, Nagpur, Maharashtra 440005
+                        </a>
+                    </div>
+                    <div class="contact-info-footer">
+                        <i class="fas fa-phone"></i>
+                        <div class="phone-numbers">
+                            <a href="tel:8788798101" class="phone-number">8788798101</a>
+                            <a href="tel:8788798101" class="phone-number">8788798101</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-footer">
+                        <a href="mailto:info@thefoodlandrestaurant.com">
+                            <i class="fas fa-envelope"></i>
+                            info@thefoodlandrestaurant.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul class="quick-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>OPENING HOURS</h3>
+                    <p>Monday - Sunday: 12:00 PM - 12:00 AM</p>
+                    <p>Kitchen closes at 11:30 PM</p>
+                    <p>Special Events - By Reservation</p>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3>QUICK LINKS</h3>
-                <ul class="quick-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#reservation">Reservations</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>OPENING HOURS</h3>
-                <div class="opening-hours">
-                    <p><span>Monday - Sunday:</span> <span>12:00 PM - 12:00 AM</span></p>
-                    <p><span>Kitchen closes at:</span> <span>11:30 PM</span></p>
-                    <p><span>Special Events:</span> <span>By Reservation</span></p>
-                </div>
+            
+            <div class="footer-bottom">
+                <p>Made by RR Industries</p>
+                <p>&copy; 2020 The Food Land Restaurant. All Rights Reserved.</p>
             </div>
         </div>
-        <div class="copyright">
-            <p>Made by RR Industries</p>
-            <p>&copy; 2024 The Food Land Restaurant. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 
     <script>
         // Simple form submission handler
@@ -1082,23 +1185,6 @@
                 });
             });
         });
-        
-        // Testimonials slider
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial');
-        const slider = document.getElementById('testimonialsSlider');
-        
-        function showTestimonial(index) {
-            slider.style.transform = `translateX(-${index * 100}%)`;
-        }
-        
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-        
-        // Auto-rotate testimonials every 5 seconds
-        setInterval(nextTestimonial, 5000);
     </script>
 </body>
 </html>
