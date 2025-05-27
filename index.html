@@ -187,6 +187,7 @@
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid #d4af37;
+            cursor: pointer;
         }
         
         .btn:hover {
@@ -424,41 +425,84 @@
             color: #d4af37;
         }
         
-        /* Reservation Section */
+        /* Enhanced Reservation Section */
         .reservation {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 80px 0;
+            position: relative;
+        }
+        
+        .reservation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .reservation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .reservation-header {
+            background-color: #d4af37;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .reservation-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            font-size: 2rem;
+            margin: 0;
         }
         
         .reservation-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.1);
             padding: 40px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            flex: 1 0 50%;
+            padding: 0 15px;
+            margin-bottom: 25px;
+            min-width: 250px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
+            color: #d4af37;
         }
         
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 12px 15px;
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #444;
-            border-radius: 5px;
+            border-radius: 8px;
             color: #fff;
             font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
         }
         
         .form-group input:focus,
@@ -466,6 +510,99 @@
         .form-group textarea:focus {
             outline: none;
             border-color: #d4af37;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #c9a227;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .form-note {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+        }
+        
+        /* Confirmation Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #d4af37;
+            animation: modalFadeIn 0.5s;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal h2 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .modal p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .modal-btn {
+            padding: 12px 30px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .modal-btn:hover {
+            background-color: #c9a227;
         }
         
         /* Contact Info Section */
@@ -540,6 +677,8 @@
         iframe {
             width: 100%;
             display: block;
+            height: 450px;
+            border: none;
         }
         
         /* Footer */
@@ -701,6 +840,14 @@
                 width: calc(220px * 20);
             }
             
+            .form-group {
+                flex: 1 0 100%;
+            }
+            
+            .reservation-form {
+                padding: 30px 20px;
+            }
+            
             @keyframes scroll {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(calc(-220px * 10)); }
@@ -852,65 +999,78 @@
         </div>
     </section>
     
-<!-- Reservation Section - Enhanced -->
-<section class="reservation" id="reservation">
-<div class="container">
-<div class="section-title">
-<h2>MAKE A RESERVATION</h2>
-</div>
-<div class="reservation-form">
-<form action="https://api.web3forms.com/submit" method="POST" id="booking-form">
-<input type="hidden" name="access_key" value="3ad2ac7d-5205-4c7f-b856-de35b9a592f3">
-<input type="hidden" name="subject" value="New Reservation Request">
-<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-<div class="form-row">
-<div class="form-group">
-<label for="name">Full Name</label>
-<input type="text" id="name" name="name" placeholder="Enter your full name" required>
-</div>
-<div class="form-group">
-<label for="email">Email</label>
-<input type="email" id="email" name="email" placeholder="Enter your email address" required>
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label for="phone">Phone Number</label>
-<input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-</div>
-<div class="form-group">
-<label for="guests">Number of Guests</label>
-<select id="guests" name="guests" required>
-<option value="" disabled selected>Select guests</option>
-<option value="1">1 Person</option>
-<option value="2">2 People</option>
-<option value="3">3 People</option>
-<option value="4">4 People</option>
-<option value="5">5 People</option>
-<option value="6+">6+ People</option>
-</select>
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label for="date">Date</label>
-<input type="date" id="date" name="date" placeholder="dd-mm-yyyy" required>
-</div>
-<div class="form-group">
-<label for="time">Time</label>
-<input type="time" id="time" name="time" placeholder="--:--" required>
-</div>
-</div>
-<div class="form-group">
-<label for="special-requests">Special Requests</label>
-<textarea id="special-requests" name="special-requests" rows="4" placeholder="Any special requests or dietary restrictions..."></textarea>
-</div>
-<button type="submit" class="submit-btn">Book Table</button>
-</form>
-</div>
-</div>
-</section>
+    <!-- Enhanced Reservation Section -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <div class="reservation-container">
+                <div class="reservation-header">
+                    <h2>MAKE A RESERVATION</h2>
+                </div>
+                <div class="reservation-form">
+                    <form id="reservationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests</label>
+                                <select id="guests" name="guests" required>
+                                    <option value="" disabled selected>Select guests</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5">5 People</option>
+                                    <option value="6">6 People</option>
+                                    <option value="7">7 People</option>
+                                    <option value="8">8 People</option>
+                                    <option value="9">9 People</option>
+                                    <option value="10+">10+ People</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="special-requests">Special Requests</label>
+                            <textarea id="special-requests" name="special-requests" rows="4" placeholder="Any special requests, dietary restrictions, or occasion details..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Book Table</button>
+                        <p class="form-note">We'll contact you to confirm your reservation within 24 hours.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h2>Reservation Confirmed!</h2>
+            <p>Thank you for your reservation request. We've received your details and will contact you shortly to confirm your booking.</p>
+            <p>A confirmation email has been sent to your provided email address.</p>
+            <button class="modal-btn" id="modalCloseBtn">Close</button>
+        </div>
+    </div>
     
     <!-- Events Section -->
     <section class="section" id="events">
@@ -1198,45 +1358,167 @@
     </footer>
 
     <script>
-        // Form submission handler with API integration
-        document.getElementById('reservationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Set minimum date and time for reservation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').min = today;
             
-            // Get form data
-            const formData = new FormData(this);
+            // Set minimum time based on current time if today is selected
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
             
-            // Send data to API
-            fetch('https://api.example.com/reservations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 3ad2ac7d-5205-4c7f-b856-de35b9a592f3'
-                },
-                body: JSON.stringify(Object.fromEntries(formData))
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.success) {
-                    alert('Thank you for your reservation! We will contact you shortly to confirm.');
-                    this.reset();
+            dateInput.addEventListener('change', function() {
+                if (this.value === today) {
+                    // If today is selected, set minimum time to current time + 1 hour
+                    const now = new Date();
+                    const currentHour = now.getHours();
+                    const currentMinute = now.getMinutes();
+                    
+                    // Calculate minimum time (current time + 1 hour)
+                    let minHour = currentHour + 1;
+                    if (minHour > 23) minHour = 23;
+                    
+                    // Format as HH:MM
+                    const minTime = `${minHour.toString().padStart(2, '0')}:${currentMinute.toString().padStart(2, '0')}`;
+                    timeInput.min = minTime;
+                    
+                    // If current time is after restaurant closing, disable today
+                    if (currentHour >= 23) {
+                        alert('Our restaurant is closed for today. Please select another date.');
+                        this.value = '';
+                    }
                 } else {
-                    alert('There was an error processing your reservation. Please try again.');
+                    // For future dates, allow any time during opening hours
+                    timeInput.min = '12:00';
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error processing your reservation. Please try again.');
             });
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            
+            // Set restaurant operating hours (12PM to 12AM)
+            timeInput.min = '12:00';
+            timeInput.max = '23:30';
+            
+            // Set default time to next available slot (current time + 1 hour, rounded to nearest 15 minutes)
+            if (dateInput.value === today) {
+                const now = new Date();
+                let hours = now.getHours() + 1;
+                let minutes = Math.ceil(now.getMinutes() / 15) * 15;
+                
+                if (minutes >= 60) {
+                    hours++;
+                    minutes = 0;
+                }
+                
+                if (hours >= 24) hours = 23;
+                
+                const defaultTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                timeInput.value = defaultTime;
+            } else {
+                timeInput.value = '19:00'; // Default time for future dates
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Modal functionality
+            const modal = document.getElementById('confirmationModal');
+            const closeBtn = document.getElementById('modalCloseBtn');
+            
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Form submission handler
+            document.getElementById('reservationForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Validate form
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const guests = document.getElementById('guests').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                
+                if (!name || !email || !phone || !guests || !date || !time) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                // Validate phone number (simple check for at least 10 digits)
+                const phoneRegex = /^\d{10,}$/;
+                if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
+                    alert('Please enter a valid phone number with at least 10 digits.');
+                    return;
+                }
+                
+                // Show confirmation modal
+                modal.style.display = 'flex';
+                
+                // Here you would typically send the data to your server
+                // For demonstration, we'll just log it and show the modal
+                const formData = {
+                    name,
+                    email,
+                    phone,
+                    guests,
+                    date,
+                    time,
+                    specialRequests: document.getElementById('special-requests').value
+                };
+                
+                console.log('Reservation Data:', formData);
+                
+                // In a real implementation, you would send this data to your server
+                // fetch('/api/reservations', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify(formData)
+                // })
+                // .then(response => response.json())
+                // .then(data => {
+                //     if (data.success) {
+                //         modal.style.display = 'flex';
+                //         this.reset();
+                //     } else {
+                //         alert('There was an error processing your reservation. Please try again.');
+                //     }
+                // })
+                // .catch(error => {
+                //     console.error('Error:', error);
+                //     alert('There was an error processing your reservation. Please try again.');
+                // });
+                
+                // Reset form after submission
+                this.reset();
+                
+                // Reset date and time to defaults
+                document.getElementById('date').min = new Date().toISOString().split('T')[0];
+                timeInput.min = '12:00';
+                timeInput.max = '23:30';
             });
         });
     </script>
