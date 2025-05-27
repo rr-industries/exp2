@@ -146,22 +146,6 @@
             text-decoration: none;
             font-weight: 400;
             transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #d4af37;
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
         }
         
         .nav-links a:hover {
@@ -184,7 +168,6 @@
             font-size: 4rem;
             margin-bottom: 20px;
             color: #d4af37;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
@@ -204,29 +187,11 @@
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid #d4af37;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
         }
         
         .btn:hover {
             background-color: transparent;
             color: #d4af37;
-            box-shadow: 0 0 10px #d4af37;
         }
         
         .btn-outline {
@@ -238,7 +203,6 @@
         .btn-outline:hover {
             background-color: #d4af37;
             color: #000;
-            box-shadow: 0 0 10px #d4af37;
         }
         
         /* Menu Section */
@@ -252,21 +216,6 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             color: #d4af37;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background-color: #d4af37;
-            bottom: -10px;
-            left: 25%;
-            border-radius: 3px;
         }
         
         .menu-grid {
@@ -280,23 +229,16 @@
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .menu-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
         .menu-item img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .menu-item:hover img {
-            transform: scale(1.05);
         }
         
         .menu-item-content {
@@ -340,23 +282,16 @@
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .feature-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
         .feature-icon {
             font-size: 3rem;
             color: #d4af37;
             margin-bottom: 20px;
-            transition: transform 0.3s;
-        }
-        
-        .feature-item:hover .feature-icon {
-            transform: scale(1.1);
         }
         
         .feature-item h3 {
@@ -378,7 +313,6 @@
             overflow: hidden;
             border-radius: 10px;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .gallery-item img {
@@ -427,12 +361,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            transition: transform 0.3s;
-        }
-        
-        .testimonial:hover .testimonial-content {
-            transform: scale(1.03);
-            background-color: rgba(255, 255, 255, 0.15);
         }
         
         .testimonial-text {
@@ -474,23 +402,16 @@
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .event-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
         .event-item img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .event-item:hover img {
-            transform: scale(1.05);
         }
         
         .event-content {
@@ -507,31 +428,15 @@
         .reservation {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 80px 0;
-            position: relative;
-        }
-        
-        .reservation::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
-            background-size: cover;
-            opacity: 0.2;
-            z-index: -1;
         }
         
         .reservation-form {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 10px;
             backdrop-filter: blur(5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(212, 175, 55, 0.3);
         }
         
         .reservation-header {
@@ -548,6 +453,7 @@
         
         .reservation-header p {
             color: #ccc;
+            font-size: 1.1rem;
         }
         
         .form-row {
@@ -572,13 +478,12 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px;
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #444;
-            border-radius: 8px;
+            border-radius: 5px;
             color: #fff;
             font-family: 'Poppins', sans-serif;
-            transition: all 0.3s;
         }
         
         .form-group input:focus,
@@ -586,8 +491,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: #d4af37;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
         }
         
         .submit-btn {
@@ -597,45 +501,17 @@
             background-color: #d4af37;
             color: #000;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
         .submit-btn:hover {
-            background-color: #c5a227;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            background-color: #c9a42d;
             transform: translateY(-2px);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-        
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(40, 167, 69, 0.2);
-            border-radius: 8px;
-            margin-top: 20px;
-            border: 1px solid rgba(40, 167, 69, 0.5);
-        }
-        
-        .form-success i {
-            color: #28a745;
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-        
-        .form-success h3 {
-            color: #28a745;
-            margin-bottom: 10px;
         }
         
         /* Contact Info Section */
@@ -650,13 +526,6 @@
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
         
         .contact-card h3 {
@@ -664,18 +533,6 @@
             color: #d4af37;
             margin-bottom: 20px;
             font-size: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .contact-card h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: #d4af37;
-            bottom: 0;
-            left: 0;
         }
         
         .contact-details p {
@@ -688,8 +545,6 @@
             margin-right: 15px;
             color: #d4af37;
             font-size: 1.2rem;
-            width: 20px;
-            text-align: center;
         }
         
         .quick-links {
@@ -698,15 +553,6 @@
         
         .quick-links li {
             margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .quick-links li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #d4af37;
         }
         
         .quick-links a {
@@ -735,31 +581,17 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 5px solid rgba(212, 175, 55, 0.3);
         }
         
         iframe {
             width: 100%;
             display: block;
-            height: 450px;
-            border: none;
         }
         
         /* Footer */
         footer {
             background-color: #000;
             padding: 50px 0 20px;
-            position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #d4af37, #f1c40f, #d4af37);
         }
         
         .footer-content {
@@ -778,18 +610,6 @@
             color: #d4af37;
             margin-bottom: 20px;
             font-size: 1.3rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: #d4af37;
-            bottom: 0;
-            left: 0;
         }
         
         .footer-column p {
@@ -811,11 +631,6 @@
             border: 2px solid #d4af37;
             margin-right: 15px;
             overflow: hidden;
-            transition: transform 0.3s;
-        }
-        
-        .footer-logo:hover .footer-logo-img {
-            transform: rotate(15deg);
         }
         
         .footer-logo-img img {
@@ -872,18 +687,10 @@
             color: #d4af37;
             font-size: 1.2rem;
             transition: transform 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(212, 175, 55, 0.1);
         }
         
         .social-links a:hover {
             transform: translateY(-3px);
-            background-color: rgba(212, 175, 55, 0.2);
         }
         
         .footer-bottom {
@@ -940,18 +747,14 @@
                 width: calc(220px * 20);
             }
             
-            @keyframes scroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-220px * 10)); }
-            }
-            
             .form-row {
                 flex-direction: column;
                 gap: 0;
             }
             
-            .reservation-form {
-                padding: 25px;
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-220px * 10)); }
             }
         }
     </style>
@@ -1100,33 +903,67 @@
         </div>
     </section>
     
-<script>
-    // Set current date and time in reservation form
-    function setCurrentDateTime() {
-        const now = new Date();
-        
-        // Format date as YYYY-MM-DD (required for date input)
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const formattedDate = `${year}-${month}-${day}`;
-        
-        // Format time as HH:MM (required for time input)
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const formattedTime = `${hours}:${minutes}`;
-        
-        // Set the values in the form
-        document.getElementById('date').value = formattedDate;
-        document.getElementById('time').value = formattedTime;
-        
-        // Set minimum date to today to prevent past dates
-        document.getElementById('date').min = formattedDate;
-    }
+    <!-- Enhanced Reservation Section -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <div class="reservation-header">
+                <h2>MAKE A RESERVATION</h2>
+                <p>Book your table online and enjoy a seamless dining experience</p>
+            </div>
+            <div class="reservation-form">
+                <form action="https://api.web3forms.com/submit" method="POST" id="booking-form">
+                    <input type="hidden" name="access_key" value="3ad2ac7d-5205-4c7f-b856-de35b9a592f3">
+                    <input type="hidden" name="subject" value="New Reservation Request">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-    // Call the function when the page loads
-    window.addEventListener('DOMContentLoaded', setCurrentDateTime);
-</script>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Number of Guests *</label>
+                            <select id="guests" name="guests" required>
+                                <option value="" disabled selected>Select guests</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6+">6+ People</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time *</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" placeholder="Any special requests, dietary restrictions, or allergies..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Table Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <!-- Events Section -->
     <section class="section" id="events">
         <div class="container">
@@ -1360,8 +1197,6 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/p/The-Food-Land-61553023532528/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/the_food_land_/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.tripadvisor.com/" target="_blank" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
                     </div>
                 </div>
                 
@@ -1396,198 +1231,100 @@
                         <li><a href="#events">Events</a></li>
                         <li><a href="#reservation">Reservations</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="gallery.html">Photo Gallery</a></li>
-                        <li><a href="careers.html">Careers</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>OPENING HOURS</h3>
-                    <div class="opening-hours">
-                        <p><span>Monday - Friday:</span> <span>12:00 PM - 12:00 AM</span></p>
-                        <p><span>Saturday - Sunday:</span> <span>11:00 AM - 1:00 AM</span></p>
-                        <p><span>Kitchen closes at:</span> <span>11:30 PM</span></p>
-                        <p><span>Special Events:</span> <span>By Reservation</span></p>
-                    </div>
+                    <p>Monday - Sunday: 12:00 PM - 12:00 AM</p>
+                    <p>Kitchen closes at 11:30 PM</p>
+                    <p>Special Events - By Reservation</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>Made by RR Industries</p>
                 <p>&copy; 2020 The Food Land Restaurant. All Rights Reserved.</p>
-                <p><a href="privacy.html" style="color: #d4af37;">Privacy Policy</a> | <a href="terms.html" style="color: #d4af37;">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Enhanced Form Submission with Validation
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Set today's date and time in the reservation form
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current date and time
+            const now = new Date();
             
-            // Show loading state
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            submitBtn.disabled = true;
+            // Format date as YYYY-MM-DD (required by date input)
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const today = `${year}-${month}-${day}`;
             
-            // Get form data
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
+            // Format time as HH:MM (required by time input)
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
             
-            // Simulate API call (replace with actual API call)
-            setTimeout(() => {
-                // Hide form and show success message
-                this.style.display = 'none';
-                document.getElementById('formSuccess').style.display = 'block';
+            // Set default time to next available reservation slot (current hour + 1)
+            hours = (hours + 1) % 24;
+            hours = String(hours).padStart(2, '0');
+            const time = `${hours}:${minutes}`;
+            
+            // Set the values in the form
+            document.getElementById('date').value = today;
+            document.getElementById('date').min = today; // Prevent selecting past dates
+            document.getElementById('time').value = time;
+            
+            // Form submission handler with API integration
+            document.getElementById('booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // Reset button state
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
+                // Get form data
+                const formData = new FormData(this);
                 
-                // You can send the form data to your server here
-                console.log('Form data:', formObject);
+                // Show loading state
+                const submitBtn = this.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
                 
-                // In a real implementation, you would use fetch() to send data to your server
-                /*
-                fetch('your-api-endpoint', {
+                // Send data to API
+                fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formObject),
+                    body: formData
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // Handle success
-                    this.style.display = 'none';
-                    document.getElementById('formSuccess').style.display = 'block';
-                    
-                    // Reset button state
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
+                    if(data.success) {
+                        alert('Thank you for your reservation! We will contact you shortly to confirm.');
+                        this.reset();
+                        // Reset to today's date and time after successful submission
+                        document.getElementById('date').value = today;
+                        document.getElementById('time').value = time;
+                    } else {
+                        alert('There was an error processing your reservation. Please try again.');
+                    }
                 })
                 .catch(error => {
-                    // Handle error
-                    alert('There was an error submitting your reservation. Please try again.');
-                    
-                    // Reset button state
-                    submitBtn.textContent = originalBtnText;
+                    console.error('Error:', error);
+                    alert('There was an error processing your reservation. Please try again.');
+                })
+                .finally(() => {
                     submitBtn.disabled = false;
+                    submitBtn.textContent = 'Book Table Now';
                 });
-                */
-            }, 1500);
-        });
-        
-        // Date and Time Validation
-        const dateInput = document.getElementById('date');
-        const timeInput = document.getElementById('time');
-        
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.min = today;
-        
-        // Validate time based on selected date
-        dateInput.addEventListener('change', function() {
-            const selectedDate = new Date(this.value);
-            const today = new Date();
+            });
             
-            if (selectedDate.toDateString() === today.toDateString()) {
-                // If today is selected, set minimum time to current time + 1 hour
-                const currentHour = today.getHours();
-                const currentMinute = today.getMinutes();
-                timeInput.min = `${currentHour + 1}:${currentMinute.toString().padStart(2, '0')}`;
-            } else {
-                // For future dates, allow any time during opening hours
-                timeInput.min = '12:00';
-            }
-            
-            // Set max time (restaurant closing time)
-            timeInput.max = '23:30';
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
-                    
-                    // Update URL without page reload
-                    if (history.pushState) {
-                        history.pushState(null, null, targetId);
-                    } else {
-                        location.hash = targetId;
-                    }
-                }
+                });
             });
         });
-        
-        // Animation for form inputs on focus
-        document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.querySelector('label').style.color = '#d4af37';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.querySelector('label').style.color = '#d4af37';
-            });
-        });
-        
-        // Initialize date picker with some restrictions
-        document.addEventListener('DOMContentLoaded', function() {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = (now.getMonth() + 1).toString().padStart(2, '0');
-            const day = now.getDate().toString().padStart(2, '0');
-            
-            // Set default date to today
-            dateInput.value = `${year}-${month}-${day}`;
-            
-            // Set default time to next available slot
-            const currentHour = now.getHours();
-            const nextHour = currentHour + 1;
-            timeInput.value = `${nextHour}:00`;
-            
-            // Trigger change event to set min time
-            dateInput.dispatchEvent(new Event('change'));
-        });
-            // Set current date and time in reservation form
-    function setCurrentDateTime() {
-        const now = new Date();
-        
-        // Format date as YYYY-MM-DD (required for date input)
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const formattedDate = `${year}-${month}-${day}`;
-        
-        // Format time as HH:MM (required for time input)
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const formattedTime = `${hours}:${minutes}`;
-        
-        // Set the values in the form
-        document.getElementById('date').value = formattedDate;
-        document.getElementById('time').value = formattedTime;
-        
-        // Set minimum date to today to prevent past dates
-        document.getElementById('date').min = formattedDate;
-    }
-
-    // Call the function when the page loads
-    window.addEventListener('DOMContentLoaded', setCurrentDateTime);
-
     </script>
 </body>
 </html>
