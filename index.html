@@ -1266,7 +1266,7 @@
             const minutes = String(now.getMinutes()).padStart(2, '0');
             
             // Set default time to next available reservation slot (current hour + 1)
-            hours = (hours + 1) % 24;
+            hours = (hours ) % 24;
             hours = String(hours).padStart(2, '0');
             const time = `${hours}:${minutes}`;
             
